@@ -16,8 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from sigpotapp import views
+from accounts import views as accounts_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.main, name="main")
+    path('',views.main, name="main"),
+
+    path('login/', accounts_views.login, name="login"),
+    path('logout/', accounts_views.logout, name="logout"),
+    path('signup/', accounts_views.signup, name="signup"),
+
+    path('freepostcreate', views.freepostcreate, name='freepostcreate'),
+    path('freedetail/<int:post_id>', views.freedetail, name='freedetail'),
 ]

@@ -1,0 +1,20 @@
+회원가입 페이지
+
+아이디 / 비밀번호 / 비밀번호 / 계정만들기
+
+<form method="POST">
+    {% csrf_token %}
+    <div>
+        <input type="text" name="username" placeholder="Email Your ID">
+    </div>
+    <div>
+        <div>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div>
+            <input type="password" name="repeat" placeholder="Repeat Password">
+        </div>
+    </div>
+    </br>
+    <input type="submit" value="회원가입">
+</form>
