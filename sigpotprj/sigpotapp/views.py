@@ -2,7 +2,7 @@
 
 # Create your views here.
 
-#def main(request):
+# def main(request):
 #   return render(request, "main.html")
 
 from datetime import timezone
@@ -12,12 +12,19 @@ from requests import RequestException
 from .forms import FreePostform, PostModelForm, CommentForm
 from .models import FreePost
 
+
 def main(request):
     freeposts = FreePost.objects.filter().order_by('-date')
-    return render(request, 'main.html', {'freeposts':freeposts})
+    return render(request, 'main.html', {'freeposts': freeposts})
+
+
+def board(request):
+    return render(request, 'board.html')
+
 
 def create(request):
     return render(request, 'create.html')
+
 
 def postcreate(request):
     freeposts = FreePost.objects.filter().order_by('-date')

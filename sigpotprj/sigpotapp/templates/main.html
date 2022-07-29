@@ -1,53 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>식팟</title>
-</head>
+  <head>
+      {% load static %}
+      <link rel="stylesheet" href={% static './css/main.css' %}>
+  </head>
 
-<body>
-  <h1>메인화면입니다.</h1>
-
-  <!--현재 로그인한 유저-->
-  {% if user.is_authenticated %}
-  {{user.username}}
-  {% else %}
-  <a>로그인 해주세요</a>
-  {% endif %}
-
-  </br></br></br>
-  <a href="{% url 'login' %}">로그인</a>
-  <a href="{% url 'logout' %}">로그아웃</a></br>
-  <a href="{% url 'signup' %}">회원가입</a></br></br></br>
-
-  <!--게시글 리스트-->
-  <table>
-    <thead>
-      <tr>
-        <th>제목</th>
-        <th>날짜</th>
-        <th>작성자</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for post in freeposts %}
-      <tr>
-        <td><a href="{% url 'detail' post.id %}"> {{ post.title }}</a></td>
-        <td>{{ post.date }}</td>
-        <td>{{ post.author}}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
-  </br>
-  <!--글 쓰기 버튼-->
-  {% if user.is_authenticated %}
-  <a href="{% url 'create' %}">글 쓰기</a>
-  {% endif %}
-</body>
-
+  <body>
+    {% include 'nav.html' %}
+    <div class="img1">
+      <img src={% static './img/mainbackground.png' %}>
+      <div class="img2">
+        <img class="back2" src={% static './img/main.png' %}>
+        <div class="ment1">밥친구를 찾을 수 있는 가장 빠른 곳,</div>
+        <div class="ment2">:식팟</div>
+      </div>
+    </div>
+    {% include 'footer.html' %}
+  </body>
 </html>

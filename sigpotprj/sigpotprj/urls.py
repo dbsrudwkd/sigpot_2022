@@ -31,7 +31,7 @@ urlpatterns = [
     path('postcreate/', views.postcreate, name='postcreate'),
     path('detail/<int:post_id>/', views.detail, name='detail'),
     path('edit/<int:post_id>', views.edit, name='edit'),
-    path('delete/<int:post_id>/', views.delete, name='delete'), 
-    # 댓글 처리 url
+    path('delete/<int:post_id>/', views.delete, name='delete'),
+    path('board/', views.board, name='board'),
     path('detail/<int:post_id>', views.create_comment , name="create_comment")
 ]

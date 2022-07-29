@@ -4,20 +4,22 @@
 </head>
 <div class="nav">
     <div class="logo">
-        <img src={% static './img/logo.png' %}>
+        <a href="{% url 'main' %}">
+            <img src={% static './img/logo.png' %}>
+        </a>
     </div>
     <div class="menu">
-        <a href class="menuselect">Home</a>
-        <a href class="menuselect">식팟 찾기</a>
-        <a href class="menuselect">식팟 모으기</a>
+        <a href="{% url 'main' %}" class="menuselect">Home</a>
+        <a href="{% url 'board' %}" class="menuselect">식팟 찾기</a>
+        <a href="{% url 'create' %}" class="menuselect">식팟 모으기</a>
     </div>
     <div class="login">
         <!--현재 로그인한 유저-->
         {% if user.is_authenticated %}
         {{user.username}}
         {% else %}
-        <a href class="loginmenu">로그인</a>
-        <a href class="signupmenu">회원가입</a>
+        <a href="{% url 'login' %}" class="loginmenu">로그인</a>
+        <a href="{% url 'signup' %}" class="signupmenu">회원가입</a>
         {% endif %}
     </div>
 </div>
