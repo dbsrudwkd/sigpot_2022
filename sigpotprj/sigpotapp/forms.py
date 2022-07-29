@@ -20,3 +20,9 @@ class FreePostform(forms.ModelForm):
             'row': 20,
             'cols' : 100
         }
+
+
+class PostModelForm(forms.ModelForm):
+    class Meta:
+        model = FreePost
+        fields = ['title', 'body']
