@@ -16,6 +16,8 @@ def main(request):
     return render(request, 'main.html', {'freeposts':freeposts})
 
 
+def search(request):
+    return render(request, 'search.html')
 
 def create(request):
     return render(request, 'create.html')
