@@ -32,7 +32,7 @@ def postcreate(request):
         post = FreePost()
         post.title = request.GET['title']
         post.body = request.GET['body']
-        # post.author = request.GET['author']
+        post.author = request.user
         post.save()
     return render(request, 'main.html', {'freeposts':freeposts})
     
