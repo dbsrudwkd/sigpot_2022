@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+}
+
+.img1{
+    position: relative;
+}
+.back2{
+    width: 80%;
+}
+.img2{
+    position: absolute;
+    top: -20%;
+    left: 5%;
+}
+.ment1{
+    position: absolute;
+    top: 30%;
+    left: 9%;
+    font-family: Pretendard;
+    font-size: 20px;
+}
+.ment2{
+    position: absolute;
+    top: 55%;
+    left: 73%;
+    font-family: Pretendard;
+    font-size: 20px;
+    color: #BBBBBB;
+}
