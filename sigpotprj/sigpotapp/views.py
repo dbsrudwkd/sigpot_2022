@@ -18,9 +18,14 @@ def main(request):
     return render(request, 'main.html', {'freeposts': freeposts})
 
 
+<<<<<<< HEAD
+def search(request):
+    return render(request, 'search.html')
+=======
 def board(request):
     return render(request, 'board.html')
 
+>>>>>>> a0a2c278b87917cc9de4689bb0013b45bca4c24f
 
 def create(request):
     return render(request, 'create.html')
