@@ -8,6 +8,7 @@
 from datetime import timezone
 from pdb import post_mortem
 from django.shortcuts import redirect, render, get_object_or_404
+from requests import RequestException
 from .forms import FreePostform, PostModelForm, CommentForm
 from .models import FreePost
 
@@ -26,14 +27,15 @@ def create(request):
 
 
 def postcreate(request):
-    post = FreePost()
-    post.title = request.GET['title']
-    post.body = request.GET['body']
-    post.author = request.user
-    post.save()
-    return redirect('/detail/' + str(post.id)+ '/')
-
-
+    freeposts = FreePost.objects.filter().order_by('-date')
+    if request.method == 'GET':
+        post = FreePost()
+        post.title = request.GET['title']
+        post.body = request.GET['body']
+        post.author = request.user
+        post.save()
+    return render(request, 'main.html', {'freeposts':freeposts})
+    
 
 def detail(request, post_id):
     post_detail = get_object_or_404(FreePost, pk=post_id)
@@ -48,7 +50,7 @@ def edit(request, post_id):
         post.title = request.POST['title']
         post.body = request.POST['body']
         post.save()
-        return redirect('/detail/' + str(post.id)+ '/')
+        return redirect('/detail/' + str(post_id))
 
     else:
         return render(request, 'edit.html')
