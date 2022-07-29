@@ -16,6 +16,10 @@ def main(request):
     return render(request, 'main.html')
 
 
+def search(request):
+    return render(request, 'search.html')
+
+
 def board(request):
     freeposts = FreePost.objects.filter().order_by('-date')
     return render(request, 'board.html', {'freeposts': freeposts})
@@ -47,7 +51,7 @@ def edit(request, post_id):
         post.title = request.POST['title']
         post.body = request.POST['body']
         post.save()
-        return redirect('/detail/' + str(post.id) + '/')
+        return redirect('/detail/' + str(post_id))
 
     else:
         return render(request, 'edit.html')
