@@ -1,0 +1,17 @@
+{% block content %}
+
+    <div class="container"> 
+        <div class="card">
+          <div class="card-body">
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.pub_date }}</p>
+            <p>{{ post.body }}</p> 
+          </div>
+        </div>
+        </div>
+        <br>
+
+        <a href="{% url 'edit' post.id %}">수정하기</a>
+        <a href="{% url 'delete' post.id %}">삭제하기</a>
+
+{% endblock %}
