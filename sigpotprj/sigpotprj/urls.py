@@ -32,5 +32,10 @@ urlpatterns = [
     path('detail/<int:post_id>/', views.detail, name='detail'),
     path('edit/<int:post_id>', views.edit, name='edit'),
     path('delete/<int:post_id>/', views.delete, name='delete'),
+<<<<<<< HEAD
     path('search/', views.search, name='search'),
+=======
+    path('board/', views.board, name='board'),
+    path('detail/<int:post_id>', views.create_comment , name="create_comment")
+>>>>>>> a0a2c278b87917cc9de4689bb0013b45bca4c24f
 ]
