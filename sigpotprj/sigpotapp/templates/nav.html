@@ -1,0 +1,23 @@
+<head>
+    {% load static %}
+    <link rel="stylesheet" href={% static './css/nav.css' %}>
+</head>
+<div class="nav">
+    <div class="logo">
+        <img src={% static './img/logo.png' %}>
+    </div>
+    <div class="menu">
+        <a href class="menuselect">Home</a>
+        <a href class="menuselect">식팟 찾기</a>
+        <a href class="menuselect">식팟 모으기</a>
+    </div>
+    <div class="login">
+        <!--현재 로그인한 유저-->
+        {% if user.is_authenticated %}
+        {{user.username}}
+        {% else %}
+        <a href class="loginmenu">로그인</a>
+        <a href class="signupmenu">회원가입</a>
+        {% endif %}
+    </div>
+</div>

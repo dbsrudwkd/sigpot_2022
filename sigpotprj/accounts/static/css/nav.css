@@ -1,0 +1,68 @@
+/* nav바 css */
+.nav{
+    width: 100%;
+    height: 10%;
+    box-shadow: 0px 2px 10px 0px #CACACA;
+    margin-bottom: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+}
+.menuselect:link {
+    color : black;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0% 10% 0% 0%;
+  }
+.menuselect:visited {
+    color : black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+.menuselect:hover {
+    text-decoration: none;
+    color : #FFB800;
+    font-weight: bold;
+  }
+
+.login{
+    width: 15%;
+}
+.loginmenu:link {
+    color : #FFB800;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0% 10% 0% 0%;
+  }
+.loginmenu:visited {
+    color : #FFB800;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .loginmenu:hover {
+    text-decoration: none;
+    color : #FFB800
+  }
+  
+.signupmenu:link {
+    color : black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+.signupmenu:visited {
+    color : black;
+    text-decoration: none;
+    font-weight: bold;
+  }
+.signupmenu:hover {
+    text-decoration: none;
+    color : black;
+  }

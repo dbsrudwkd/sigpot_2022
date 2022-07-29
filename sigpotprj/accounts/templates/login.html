@@ -1,15 +1,30 @@
-로그인 누름
+<head>
+    {% load static %}
+    <link rel="stylesheet" href={% static './css/login.css' %}>
+</head>
+{% include 'nav.html' %}
+<div class="outbox">
+    <div class="signupbox">
+        <div class="textbox">
+            <div class="signment">로그인 하기</div>
+            <form class="user" method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user"
+                        id="username" name="username" aria-describedby="emailHelp"
+                        placeholder="아이디 또는 이메일">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control form-control-user"
+                        id="password" name="password" placeholder="비밀번호">
+                </div>
+                <div class="checking">
+                <label><input type="checkbox" name="autocheck" value="auto" class="checkbox">자동로그인</label>
+                </div>
+                <input type="submit" value="로그인">
+                </form>
+        </div>
+    </div>
+</div>
 
-<form class="user" method="POST">
-{% csrf_token %}
-<div class="form-group">
-    <input type="text" class="form-control form-control-user"
-        id="username" name="username" aria-describedby="emailHelp"
-        placeholder="Enter Your ID...">
-</div>
-<div class="form-group">
-    <input type="password" class="form-control form-control-user"
-        id="password" name="password" placeholder="Password">
-</div>
-<input type="submit" value="로그인">
-</form>
+{% include 'footer.html' %}
