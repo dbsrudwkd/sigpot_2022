@@ -8,7 +8,7 @@
 from datetime import timezone
 from pdb import post_mortem
 from django.shortcuts import redirect, render, get_object_or_404
-from requests import RequestException
+# from requests import RequestException
 from .forms import FreePostform, PostModelForm, CommentForm
 from .models import FreePost
 
@@ -18,14 +18,12 @@ def main(request):
     return render(request, 'main.html', {'freeposts': freeposts})
 
 
-<<<<<<< HEAD
 def search(request):
     return render(request, 'search.html')
-=======
+
 def board(request):
     return render(request, 'board.html')
 
->>>>>>> a0a2c278b87917cc9de4689bb0013b45bca4c24f
 
 def create(request):
     return render(request, 'create.html')
