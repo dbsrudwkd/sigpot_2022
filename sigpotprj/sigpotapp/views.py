@@ -8,7 +8,7 @@
 from datetime import timezone
 from pdb import post_mortem
 from django.shortcuts import redirect, render, get_object_or_404
-from .forms import FreePostform, PostModelForm
+from .forms import FreePostform, PostModelForm, CommentForm
 from .models import FreePost
 
 
@@ -29,13 +29,16 @@ def postcreate(request):
     post = FreePost()
     post.title = request.GET['title']
     post.body = request.GET['body']
+    post.author = request.user
     post.save()
-    return redirect('/sigpotapp/detail/' + str(post.id))
+    return redirect('/detail/' + str(post.id)+ '/')
+
 
 
 def detail(request, post_id):
     post_detail = get_object_or_404(FreePost, pk=post_id)
-    return render(request, 'detail.html', {'post': post_detail})
+    comment_form = CommentForm()
+    return render(request, 'detail.html', {'post': post_detail, 'comment_form':comment_form})
 
 
 def edit(request, post_id):
@@ -45,7 +48,7 @@ def edit(request, post_id):
         post.title = request.POST['title']
         post.body = request.POST['body']
         post.save()
-        return redirect('/sigpotapp/detail/' + str(post.id))
+        return redirect('/detail/' + str(post.id)+ '/')
 
     else:
         return render(request, 'edit.html')
@@ -55,3 +58,12 @@ def delete(request, post_id):
     post = FreePost.objects.get(id=post_id)
     post.delete()
     return redirect('/')
+
+def create_comment(request, post_id):
+    filled_form = CommentForm(request.POST) 
+
+    if filled_form.is_valid():    
+        finished_form = filled_form.save(commit=False)
+        finished_form.post = get_object_or_404(FreePost, pk=post_id)
+        finished_form.save()
+        return redirect('/detail/' + str(post_id) + '/');

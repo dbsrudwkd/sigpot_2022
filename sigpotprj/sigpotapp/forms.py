@@ -1,5 +1,5 @@
 from django import forms
-from .models import FreePost
+from .models import FreePost, Comment
 
 class FreePostform(forms.ModelForm):
     class Meta:
@@ -26,3 +26,9 @@ class PostModelForm(forms.ModelForm):
     class Meta:
         model = FreePost
         fields = ['title', 'body']
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ['comment']
+        # fields = ['title', 'body']
