@@ -1,0 +1,45 @@
+.footer{
+    margin-top: 8%;
+    width: 100%;
+    height:35%;
+    background-color: black;
+
+}
+.copyright{
+    font-family: Pretendard;
+    color: white;
+    font-size: 13px;
+    margin-top: 30px;
+}
+.footer{
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.line{
+    width: 80%;
+    height: 10px;
+    border-bottom: 1px white;
+}
+.contactbox{
+    display: flex;
+    flex-direction: column;
+    font-family: Pretendard;
+    font-weight: 400;
+    font-size: 13px;
+    margin-left: 15px;
+}
+.contact{
+    font-family: Pretendard;
+    font-weight: 600;
+    font-size: 13px;
+    margin-left: 150px;
+}
+.finbox1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
