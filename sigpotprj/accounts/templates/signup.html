@@ -4,25 +4,7 @@
         <link rel="stylesheet" href={% static './css/signup.css' %}>
     </head>
     <body>
-        <div class="nav">
-            <div class="logo">
-                <img src={% static './img/logo.png' %}>
-            </div>
-            <div class="menu">
-                <a href class="menuselect">Home</a>
-                <a href class="menuselect">식팟 찾기</a>
-                <a href class="menuselect">식팟 모으기</a>
-            </div>
-            <div class="login">
-                <!--현재 로그인한 유저-->
-                {% if user.is_authenticated %}
-                {{user.username}}
-                {% else %}
-                <a href class="loginmenu">로그인</a>
-                <a href class="signupmenu">회원가입</a>
-                {% endif %}
-            </div>
-        </div>
+        {% include 'nav.html' %}
         <div class="outbox">
             <div class="signupbox">
                 <div class="textbox">
@@ -50,21 +32,6 @@
                 </div>
             </div>
         </div>
-        <div class="footer">
-            <div class = "finbox1">
-                <div class="contact">CONTACT US</div>
-                <div class="contactbox">
-                    <div class="number">+02 123 1234</div>
-                    <div class="email">sig_pot@mail.com</div>
-                </div>
-                <div class="contact">INFORMATION</div>
-                <div class="contactbox">
-                    <div class="number">(주) CODE:1210 | 대표 이사 000 | 코드시 코드문구 일이동 멋쟁이로 00-0 | 개인정보관리책임자 : 000</div>
-                    <div class="email">팩스번호 00-000-0000 | 문의시간 오전 10시-오후 10시</div>
-                </div>
-            </div>
-            <div class="line"></div>
-            <div class="copyright">Copyright SIGPOT.All Rights Reserved.</div>
-        </div>
+        {% include 'footer.html' %}
     </body>
 </html>
